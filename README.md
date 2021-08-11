@@ -31,7 +31,8 @@ Minimally invasive robotic surgery copes with some disadvantages for the surgeon
   The generated plots are saved in the folder `plots` within this repo.
 
 Before running please adapt following parameters (line 30-34)
-`PLOT_SPLINE = True 	## if True plot second benchmark, if False plot first
+  
+```PLOT_SPLINE = True 	## if True plot second benchmark, if False plot first
 CONTROL = True		## if True plot control group	
-`
+```
 
