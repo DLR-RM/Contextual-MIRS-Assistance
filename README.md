@@ -15,9 +15,7 @@ add Citation if it gets accepted
 
 ### Overview
 
-<p align="center">
-<img src='resources/concept_overview-svg.pdf' width='400'>
-<p>
+
 
 ![concept_overview-svg.pdf](https://github.com/DLR-RM/Contextual-MIRS-Assistance/files/6966525/concept_overview-svg.pdf)
 
