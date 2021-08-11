@@ -16,7 +16,7 @@ add Citation if it gets accepted
 ### Overview
 
 <p align="center">
-<img src='resources/concept_overview-svg-png.png' width='400'>
+<img src='resources/concept_overview-svg-png.png'>
 <p>
 
 
