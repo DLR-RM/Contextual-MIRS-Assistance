@@ -2,20 +2,20 @@
 
 Katharina Hagmann, Anja Hellings-Kuß, Julian Klodmann, Rebecca Richter, Freek Stulp and Daniel Leidner
 
-Submitted to Frontiers in Robotics and AI
+under review in *Frontiers in Robotics and AI*
 
 ### Citation
 
 If you find our work useful for your research, please consider citing
 
 ```
-add Citation
+add Citation if it gets accepted
 ```
 
 ### Overview
 
 <p align="center">
-<img src='resources/cover.png' width='400'>
+<img src='resources/concept_overview-svg.pdf' width='400'>
 <p>
 
 
@@ -28,5 +28,10 @@ Minimally invasive robotic surgery copes with some disadvantages for the surgeon
   
   This repo contains the data set recorded during the pilot user study, the scripts to calculate the mean and standard deviation of the presented data and to plot   the data. 
   It is required to run the evaluation scripts using Python 2.7. 
-  The generated plots are saved in the folder `plots` within this repo. 
+  The generated plots are saved in the folder `plots` within this repo.
+
+Before running please adapt following parameters (line 30-34)
+`PLOT_SPLINE = True 	## if True plot second benchmark, if False plot first
+CONTROL = True		## if True plot control group	
+`
 
