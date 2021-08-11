@@ -1,3 +1,4 @@
+
 # Contextual Assistance in Surgical Robotics Training with a Digital Twin
 
 Katharina Hagmann, Anja Hellings-Kuß, Julian Klodmann, Rebecca Richter, Freek Stulp and Daniel Leidner
@@ -18,7 +19,7 @@ add Citation if it gets accepted
 <img src='resources/concept_overview-svg.pdf' width='400'>
 <p>
 
-
+[concept_overview-svg.pdf](https://github.com/DLR-RM/Contextual-MIRS-Assistance/files/6966525/concept_overview-svg.pdf)
 
 ### Abstract
 
