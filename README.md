@@ -5,14 +5,6 @@ Katharina Hagmann, Anja Hellings-Kuß, Julian Klodmann, Rebecca Richter, Freek S
 
 under review in *Frontiers in Robotics and AI*
 
-### Citation
-
-If you find our work useful for your research, please consider citing
-
-```
-add Citation if it gets accepted
-```
-
 ### Overview
 
 <p align="center">
@@ -38,3 +30,11 @@ PLOT_SPLINE = True 	## if True plot second benchmark, if False plot first
 CONTROL = True		## if True plot control group	
 ```
 
+
+### Citation
+
+If you find our work useful for your research, please consider citing
+
+```
+add Citation if it gets accepted
+```
