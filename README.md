@@ -30,9 +30,10 @@ Minimally invasive robotic surgery copes with some disadvantages for the surgeon
   It is required to run the evaluation scripts using Python 2.7. 
   The generated plots are saved in the folder `plots` within this repo.
 
-Before running please adapt following parameters (line 30-34)
+Before running please adapt following parameters (line 30 ff)
   
-```PLOT_SPLINE = True 	## if True plot second benchmark, if False plot first
+```
+PLOT_SPLINE = True 	## if True plot second benchmark, if False plot first
 CONTROL = True		## if True plot control group	
 ```
 
