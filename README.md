@@ -7,9 +7,9 @@ under review in *Frontiers in Robotics and AI*
 
 ### Overview
 
-<p align="center">
-<img src='resources/concept_overview-svg-png.png'>
-<p>
+#<p align="center">
+#<img src='resources/concept_overview-svg-png.png'>
+#<p>
 
 
 
