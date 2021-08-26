@@ -188,9 +188,9 @@ all_data = {}
 acc_forces_per_task = collections.OrderedDict()
 durations_per_task = collections.OrderedDict()
 options_count = collections.OrderedDict()
-options_count['mit']= range(1,4)
+options_count['with']= range(1,4)
 
-options_count['ohne']= range(1,3)
+options_count['without']= range(1,3)
 
 for option,count_list in options_count.items():
     for count in count_list:
@@ -215,30 +215,30 @@ for VP_name in VP_list:
     fig_hist_force = None
     fig_hist_time = None
     participant_folder_name = VP_name + '/'
-    mit_folder_namen = [VP_name+'_mit_1', VP_name+'_mit_2', VP_name+'_mit_3' ,VP_name+'_spline_mit_1', VP_name+'_spline_mit_2', VP_name+'_spline_mit_3']
-    ohne_folder_namen = [VP_name+'_ohne_1',VP_name+'_ohne_2',VP_name+'_spline_ohne_1',VP_name+'_spline_ohne_2']
+    with_folder_namen = [VP_name+'_with_1', VP_name+'_with_2', VP_name+'_with_3' ,VP_name+'_spline_with_1', VP_name+'_spline_with_2', VP_name+'_spline_with_3']
+    without_folder_namen = [VP_name+'_without_1',VP_name+'_without_2',VP_name+'_spline_without_1',VP_name+'_spline_without_2']
 
-    mit_folder = fill_folder_list(mit_folder_namen, spline=PLOT_SPLINE)
-    ohne_folder = fill_folder_list(ohne_folder_namen, spline=PLOT_SPLINE)
+    with_folder = fill_folder_list(with_folder_namen, spline=PLOT_SPLINE)
+    without_folder = fill_folder_list(without_folder_namen, spline=PLOT_SPLINE)
 
 
-    folder_paths_ohne = []
-    for name in ohne_folder_namen:
+    folder_paths_without = []
+    for name in without_folder_namen:
         if participant_folder_name != '':
-            folder_paths_ohne.append(userstudy_folder_path+participant_folder_name+name)
+            folder_paths_without.append(userstudy_folder_path+participant_folder_name+name)
         else:
-            folder_paths_ohne.append(userstudy_folder_path+name)
-    folder_paths_mit = []
-    for name in mit_folder_namen:
+            folder_paths_without.append(userstudy_folder_path+name)
+    folder_paths_with = []
+    for name in with_folder_namen:
         if participant_folder_name != '':
-            folder_paths_mit.append(userstudy_folder_path+participant_folder_name+name)
+            folder_paths_with.append(userstudy_folder_path+participant_folder_name+name)
         else:
-            folder_paths_mit.append(userstudy_folder_path+name)
+            folder_paths_with.append(userstudy_folder_path+name)
 
 
 
 
-    folder_paths = {'mit': folder_paths_mit, 'ohne': folder_paths_ohne}
+    folder_paths = {'with': folder_paths_with, 'without': folder_paths_without}
 
     data = {}
     print ("starting to load data from " + userstudy_folder_path + participant_folder_name)
@@ -286,13 +286,13 @@ for VP_name in VP_list:
     task_states = {}
 
     color_count = 0
-    for option in ['mit','ohne']:
+    for option in ['with','without']:
 
-        if PLOT_SPLINE and ((option == 'mit' and not CONTROL) or CONTROL):
+        if PLOT_SPLINE and ((option == 'with' and not CONTROL) or CONTROL):
             task_states['PF'] = ['ring_grasped', 'transition_with_spline', 'goal_state']
             task_states['pick'] = ['init_state', 'start_state', 'close_to_ring', 'x_y_perfectly', 'valid_grasp_position']
             #task_states['pick'] = ['close_to_ring', 'x_y_perfectly', 'valid_grasp_position']
-        elif PLOT_SPLINE and option == 'ohne' and not CONTROL:
+        elif PLOT_SPLINE and option == 'without' and not CONTROL:
             #task_states['pick'] = ['close_to_ring_pick', 'x_y_perfectly_over_ring', 'valid_grasp_position']
             task_states['pick'] = ['init_state_here', 'start_state_here', 'close_to_ring_pick', 'x_y_perfectly_over_ring', 'valid_grasp_position']
             task_states['PF'] = ['ring_grasped', 'transition_with_spline', 'goal_state']
@@ -304,11 +304,11 @@ for VP_name in VP_list:
 
 
         count = 0
-        if option == 'mit':
-            selected_folder_type = mit_folder
+        if option == 'with':
+            selected_folder_type = with_folder
             with_forces = True
         else:
-            selected_folder_type = ohne_folder
+            selected_folder_type = without_folder
             with_forces = False
 
 
@@ -330,7 +330,7 @@ for VP_name in VP_list:
         else:
             offset = [-0.2, 0.2]
         count = 1
-        ohne_count = 0
+        without_count = 0
 
         if PLOT_SPLINE:
             ax_force.set_title('Accumulated Forces for each task' +str(VP_name) + ' with spline')
@@ -343,15 +343,15 @@ for VP_name in VP_list:
 
         for folder in selected_folder_type:
 
-            if 'ohne' in folder:
-                ohne_count += 1
-                label = 'without ' + str(ohne_count)
+            if 'without' in folder:
+                without_count += 1
+                label = 'without ' + str(without_count)
             else:
                 label = "with " + str(count)
 
             ###### forces
             normed_forces = norm_forces(np.asarray(data[option][folder]['fixture_forces_info1'])[:, 1])
-            if 'ohne' in folder and 'spline' in folder and len(np.asarray(data[option][folder]['calculated_spline_forces_for_gripper_pos']).shape)>1:
+            if 'without' in folder and 'spline' in folder and len(np.asarray(data[option][folder]['calculated_spline_forces_for_gripper_pos']).shape)>1:
                 normed_forces_spline = norm_forces(np.asarray(data[option][folder]['calculated_spline_forces_for_gripper_pos'])[:, 1])
             else:
                 normed_forces_spline = norm_forces(np.asarray(data[option][folder]['fixture_forces_info2'])[:, 1])
@@ -427,7 +427,7 @@ errors = collections.OrderedDict()
 summed_durations_per_task = {}
 fig_hist_force = None
 count = 1
-ohne_count = 0
+without_count = 0
 color_count = 0
 
 keys_for_transition_not_active = collections.OrderedDict()
@@ -514,7 +514,7 @@ for key, wrenches_per_task in summed_forces_per_task.items():
 
 
 count = 1
-ohne_count = 0
+without_count = 0
 if CONTROL:
     color_count = 3
 else:
@@ -532,12 +532,12 @@ for key in summed_forces_per_task.keys():
         ax_torque = fig_hist_torque.add_subplot(111)
         fig_hist_time = plt.figure()
         ax_time = fig_hist_time.add_subplot(111)
-    if 'ohne' in key and not 'spline' in key:
+    if 'without' in key and not 'spline' in key:
         offset = [-0.2, 0.2]
-        #print ohne_count
-        offset_curr = offset[ohne_count]
-        ohne_count +=1
-        label = 'without ' +str(ohne_count)
+        #print without_count
+        offset_curr = offset[without_count]
+        without_count +=1
+        label = 'without ' +str(without_count)
 
 
     else:
@@ -619,7 +619,7 @@ durations_per_task_dict = {}
 errors = {}
 fig_hist_time = None
 count = 1
-ohne_count = 0
+without_count = 0
 if CONTROL:
     color_count = 3
 else:
@@ -665,11 +665,11 @@ for key,durations_per_task_list in durations_per_task.items():
         fig_hist_time = plt.figure()
         ax_time = fig_hist_time.add_subplot(111)
 
-    if 'ohne' in key and not 'spline' in key:
+    if 'without' in key and not 'spline' in key:
         offset = [-0.2, 0.2]
-        offset_curr = offset[ohne_count]
-        ohne_count +=1
-        label = 'without ' +str(ohne_count)
+        offset_curr = offset[without_count]
+        without_count +=1
+        label = 'without ' +str(without_count)
     else:
         offset = [-0.2, -0.1, 0.0, 0.1, 0.2]
         offset_curr = offset[count]

@@ -35,17 +35,17 @@ else:
     VP_list = [1,  3,  5]
 
 ### results
-task1 = collections.OrderedDict([("mit1",[5,4,8,11,5,4,2,11,3,12]),
-                                 ("mit2", [8,4,8,11,4,6,2,11,3,14]),
-                                 ("mit3", [5,3,6,10,5,4,2,10,3,12]),
-                                 ("ohne1", [11,5,13,12,10,6,2,12,4,13]),
-                                 ("ohne2", [7,4,7,12,5,3,1,10,3,13]),
+task1 = collections.OrderedDict([("with1",[5,4,8,11,5,4,2,11,3,12]),
+                                 ("with2", [8,4,8,11,4,6,2,11,3,14]),
+                                 ("with3", [5,3,6,10,5,4,2,10,3,12]),
+                                 ("without1", [11,5,13,12,10,6,2,12,4,13]),
+                                 ("without2", [7,4,7,12,5,3,1,10,3,13]),
                                  ])
-task2 = collections.OrderedDict([("mit1",[4,4,4,8,1,3,4,11,12,15]),
-                                 ("mit2", [7,5,6,10,2,4,2,11,11,16]),
-                                 ("mit3", [6,3,7,11,2,3,3,12,10,16]),
-                                 ("ohne1", [10,7,12,15,4,3,5,10,11,16]),
-                                 ("ohne2", [10,4,9,13,4,2,4,10,10,15]),
+task2 = collections.OrderedDict([("with1",[4,4,4,8,1,3,4,11,12,15]),
+                                 ("with2", [7,5,6,10,2,4,2,11,11,16]),
+                                 ("with3", [6,3,7,11,2,3,3,12,10,16]),
+                                 ("without1", [10,7,12,15,4,3,5,10,11,16]),
+                                 ("without2", [10,4,9,13,4,2,4,10,10,15]),
                                  ])
 
 fig_hist_work = None
@@ -66,7 +66,7 @@ for task in task_list:
         color_count = 3
     else:
         color_count = 0
-    ohne_count = 0
+    without_count = 0
     count = 0
 
     for trial, workload in task.iteritems():
@@ -76,11 +76,11 @@ for task in task_list:
             fig_hist_work = plt.figure()
             ax_work = fig_hist_work.add_subplot(111)
 
-        if 'ohne' in trial:
+        if 'without' in trial:
             offset = [-0.2, 0.2]
-            offset_curr = offset[ohne_count]
-            ohne_count +=1
-            label = 'without ' +str(ohne_count)
+            offset_curr = offset[without_count]
+            without_count +=1
+            label = 'without ' +str(without_count)
         else:
             offset = [ -0.1, 0.0, 0.1]
             offset_curr = offset[count]
@@ -97,7 +97,7 @@ ax_work.set_xticks(range(3))
 ax_work.set_xticklabels(['benchmark one', '', 'benchmark two'])
 
 
-save_fig_path = os.getcwd()+'/plots_with_start/'
+save_fig_path = os.getcwd()+'/plots/'
 #plt.legend()
 if CONTROL:
     fig_hist_work.savefig(save_fig_path + 'control_workload.pdf', bbox_inches='tight')
