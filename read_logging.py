@@ -712,5 +712,65 @@ else:
     fig_hist_time.savefig(save_fig_path + 'bar_times.pdf', bbox_inches='tight')
 
 
+############ statistical analysis learning effect between first and fifth trial for each task
 
+from scipy import stats
+
+
+
+pick_1 = forces_per_task_dict['ohne1']['pick']
+pick_5 = forces_per_task_dict['ohne2']['pick']
+place_1 = forces_per_task_dict['ohne1']['place']
+place_5 = forces_per_task_dict['ohne2']['place']
+
+if len(place_1) != len(place_5):
+    place_1 = [place_1[0], place_1[2]]
+
+evaluate_PF = False
+if 'PF' in forces_per_task_dict['ohne1'].keys():
+    PF_1 = forces_per_task_dict['ohne1']['PF']
+    PF_5 = forces_per_task_dict['ohne2']['PF']
+    evaluate_PF = True
+
+####################### translational
+print '########### translational '
+
+statistic, pvalue = stats.ttest_rel(np.asarray(pick_1)[:,0], np.asarray(pick_5)[:,0])
+print "pick "
+print statistic, pvalue
+
+
+statistic, pvalue = stats.ttest_rel(np.asarray(place_1)[:,0], np.asarray(place_5)[:,0])
+
+print "place "
+print statistic, pvalue
+
+if evaluate_PF:
+
+    statistic, pvalue = stats.ttest_rel(np.asarray(PF_1)[:,0], np.asarray(PF_5)[:,0])
+    print "PF "
+    print statistic, pvalue
+
+
+
+####################### roational
+
+
+print '########### rotational '
+statistic, pvalue = stats.ttest_rel(np.asarray(pick_1)[:,1], np.asarray(pick_5)[:,1])
+
+print "pick "
+print statistic, pvalue
+
+statistic, pvalue = stats.ttest_rel(np.asarray(place_1)[:,1], np.asarray(place_5)[:,1])
+
+print "place "
+print statistic, pvalue
+
+
+if evaluate_PF:
+
+    statistic, pvalue = stats.ttest_rel(np.asarray(PF_1)[:,1], np.asarray(PF_5)[:,1])
+    print "PF "
+    print statistic, pvalue
 
