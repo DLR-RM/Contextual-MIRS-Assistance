@@ -9,7 +9,7 @@ under review in *Frontiers in Robotics and AI*
 
 ## Description
   
-  This repo contains the data set recorded during the pilot user study, the scripts to calculate the mean and standard deviation of the presented data and to plot   the data. 
+  This repo contains the data set recorded during the pilot user study, the scripts to calculate the mean and standard deviation of the presented data and to plot the data. Additionally, a t-test is performed to statistically analyze an observed trainings effect.  
   It is required to run the evaluation scripts using Python 2.7. 
   The generated plots are saved in the folder `plots` within this repo.
 
